@@ -2,13 +2,14 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #0f0f11;
-
 }
 
 .container {
     width: 100%;
     height:100vh;
     display:flex;
+    background-color: #0f0f11;
+
 }
 
 .navigation-container {
@@ -58,20 +59,6 @@ body {
 
 
 
-.tweets-sidebar-container {
-    flex: 1;
-    background-color: brown;
-    display: flex;
-}
-
-
-
-.tweets-sidebar {
-    width: 200px;
-    height: 500px;
-    margin: 20px;
-    background-color: cyan;
-}
 
 .navigation {
     color: white;
@@ -113,4 +100,54 @@ body {
     background-color: white;
     border-radius: 50%;
     border: 1px solid #979797;
+}
+
+.tweets-sidebar-container {
+    flex: 1;
+    display: flex;
+}
+
+.tweets-sidebar {
+    width: 300px;
+    height: 400px;
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid #979797;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.tweets-trending {
+    height: 250px;
+    background-color: #f2f2f2;
+    margin: 10px;
+    border-radius: 40px;
+    padding-top: 20px;
+}
+
+.tweets-trending h5 {
+    font-size: 12px;
+    margin-top: 0px;
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D8D8D8;
+    color: #848586;
+
+}
+
+.tweets-trending ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tweets-trending ul li {
+    padding:10px 25px;
+    border-bottom: 1px solid #D8D8D8;
+    font-weight: 600;
+    font-size: 14px;
+    color: #A5A5A6;
+    cursor: pointer;
 }
