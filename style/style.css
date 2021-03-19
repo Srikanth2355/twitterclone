@@ -25,11 +25,7 @@ body {
     flex-direction: column;
 }
 
-.tweets-sidebar-container {
-    flex: 1;
-    background-color: brown;
-    display: flex;
-}
+
 
 .tweets-search-container {
     margin: 20px;
@@ -60,19 +56,15 @@ body {
     padding-left: 10px;
 }
 
-.tweets-list {
-    height: 500px;
-    margin: 20px;
-    background-color: blue;
+
+
+.tweets-sidebar-container {
+    flex: 1;
+    background-color: brown;
+    display: flex;
 }
 
-.tweet-container {
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-    background-color: yellow;
-    margin: 10px;
-}
+
 
 .tweets-sidebar {
     width: 200px;
