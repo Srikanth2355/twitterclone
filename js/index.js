@@ -18,7 +18,7 @@ const getTwitterData = () => {
         return response.json();
     })
     .then((data)=> {
-        console.log(data);
+        buildTweets(data.statuses);
     })
     
 }
@@ -46,7 +46,40 @@ const nextPageButtonVisibility = (metadata) => {
  * Build Tweets HTML based on Data from API
  */
 const buildTweets = (tweets, nextPage) => {
+    console.log(tweets);
+    let twittercontent ="";
+    tweets.map((tweet)=>{
+        twittercontent += `
+        <div class="tweet-container">
+            <div class="tweet-user-info">
+                <div class="tweet-user-profile">
+    
+                </div>
+                <div class="tweet-user-name-container">
+                    <div class="tweet-user-fullname">
+                        Srikanth
+                    </div>
+                    <div class="tweet-user-username">
+                        @srikanth
+                    </div>
+                </div>
+            </div>
+            <div class="tweet-images-container">
+                <div class="tweet-image">
+    
+                </div>
+            </div>
+            <div class="tweet-text-container">
+                ${tweet.full_text}
+            </div>
+            <div class="tweet-date-container">
+                20 hours ago
+            </div>
+        </div>
+        `
+    })
 
+    document.querySelector(".tweets-list").innerHTML = twittercontent;
 }
 
 /**

@@ -1,5 +1,7 @@
 .tweets-list {
     margin: 20px;
+    margin-top:0px;
+    
 }
 
 .tweet-container {
@@ -8,6 +10,9 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    
 }
 
 .tweet-user-info {
