@@ -49,31 +49,41 @@ const buildTweets = (tweets, nextPage) => {
     console.log(tweets);
     let twittercontent ="";
     tweets.map((tweet)=>{
+        const createddate = moment(tweet.created_at,).fromNow();
+        // const date = tweet.created_at;
+        // var formatdate = date.slice(4,20);
+        // formatdate += date.slice(26,32);
+        // var m = moment(formatdate).format("MM-DD-h:mm:ss-YYYY");
+        // var createddate =moment(m).fromNow()
+        // console.log(createddate);
         twittercontent += `
         <div class="tweet-container">
             <div class="tweet-user-info">
-                <div class="tweet-user-profile">
+                <div class="tweet-user-profile" style="background-image:url(${tweet.user.profile_image_url_https})">
     
                 </div>
                 <div class="tweet-user-name-container">
                     <div class="tweet-user-fullname">
-                        Srikanth
+                        ${tweet.user.name}
                     </div>
                     <div class="tweet-user-username">
-                        @srikanth
+                        @${tweet.user.screen_name}
                     </div>
                 </div>
             </div>
-            <div class="tweet-images-container">
-                <div class="tweet-image">
-    
-                </div>
-            </div>
+            `
+
+            if(tweet.extended_entities && tweet.extended_entities.media.length > 0){
+               twittercontent += buildImages(tweet.extended_entities.media);
+               twittercontent += buildVideo(tweet.extended_entities.media);
+            }
+            
+            twittercontent += `
             <div class="tweet-text-container">
                 ${tweet.full_text}
             </div>
             <div class="tweet-date-container">
-                20 hours ago
+                ${createddate}
             </div>
         </div>
         `
@@ -86,12 +96,38 @@ const buildTweets = (tweets, nextPage) => {
  * Build HTML for Tweets Images
  */
 const buildImages = (mediaList) => {
-
+    let imagescontent = `<div class="tweet-images-container">`;
+    let imageexists = false;
+    mediaList.map((media) => {
+        if(media.type === "photo"){
+            imageexists = true;
+           imagescontent +=  `<div class="tweet-image" style="background-image: url(${media.media_url_https})">
+           </div>`
+        }
+    });
+    imagescontent += `</div>`
+    return imageexists ? imagescontent : "";
 }
 
 /**
  * Build HTML for Tweets Video
  */
 const buildVideo = (mediaList) => {
-
+    let videocontent = `<div class="tweet-video-container">`;
+    let videoexists = false;
+    mediaList.map((media) => {
+        if(media.type === "video"){
+            videoexists = true;
+            videocontent +=  `<video controls>
+           <source src="${media.video_info.variants[0]["url"]}" type="video/mp4">
+       </video>`
+        } else if(media.type === "animated_gif"){
+            videoexists = true;
+            videocontent +=  `<video loop autoplay>
+           <source src="${media.video_info.variants[0]["url"]}" type="video/mp4">
+            </video>`
+        }
+    });
+    videocontent += `</div>`
+    return videoexists ? videocontent : "";
 }
