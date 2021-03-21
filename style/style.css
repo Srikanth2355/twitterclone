@@ -59,12 +59,13 @@ body {
     cursor: pointer;
 }
 
-
-
-
 .navigation {
     color: white;
     margin-top: 30px;
+    width:20%;
+    max-width:100px;
+    min-width: 70px;
+    position: fixed;
 }
 
 .logo {
@@ -102,6 +103,7 @@ body {
     background-color: white;
     border-radius: 50%;
     border: 1px solid #979797;
+    background-size: cover;
 }
 
 .tweets-sidebar-container {
@@ -152,4 +154,21 @@ body {
     font-size: 14px;
     color: #A5A5A6;
     cursor: pointer;
+    font-weight: 600;
+}
+
+.next-page-container {
+    margin: 0px 20px 20px 20px;
+    color: #475250;
+    border: 1px solid #1c1c1c;
+    border-radius: 20px;
+    padding: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.40s ease-in-out;
+    visibility: hidden;
+}
+
+.next-page-container:hover {
+    background-color: #1c1c1c;
 }
