@@ -1,4 +1,4 @@
-const URL = "http://localhost:3000/tweets";
+const URL = "https://radiant-spire-70727.herokuapp.com/tweets";
 let nextpageurl = null;
 
 const onenter = (e)=>{
@@ -72,7 +72,6 @@ const nextPageButtonVisibility = (metadata) => {
  * Build Tweets HTML based on Data from API
  */
 const buildTweets = (tweets, nextPage) => {
-    console.log(tweets);
     let profile = `<div class="profile" style="background-image:url(${tweets[0].user.profile_image_url_https})"></div>`
     document.querySelector(".profile-container").innerHTML = profile;
     let twittercontent ="";
